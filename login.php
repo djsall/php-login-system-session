@@ -33,13 +33,13 @@ $con = mysqli_connect('localhost', 'root', '', 'test');
 
 if(isset($_SESSION['username'])){
  header('Location: /dashboard.php');
- 
-}elseif (isset($_REQUEST['loginBtn']) && !isset($_SESSION['username'])){
+
+}elseif (isset($_REQUEST['loginBtn'])){
 	$username = mysqli_escape_string($con, $_POST['username']);
 	$password = mysqli_escape_string($con, $_POST['password']);
-	
+
 	$query = mysqli_query($con, 'SELECT * FROM users WHERE username="' . $username . '" AND password="' . $password . '";');
-	
+
 	if(mysqli_num_rows($query) == 1) {
 	 $_SESSION['username'] = $username;
 	}
