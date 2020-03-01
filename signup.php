@@ -55,7 +55,7 @@ elseif (isset($_REQUEST['signupBtn']) && !isset($_SESSION['username'])){
 		echo "Ez az E-Mail cím már használatban van!";
 	}else {
 	 	mysqli_query($con, 'INSERT INTO users (email, username, password) VALUES ("' . $email . '", "' . $username . '", "' . $password . '");');
-	 	header('Location: /index.php');
+	 	header('Location: /login.php');
 	}
 	
 }
